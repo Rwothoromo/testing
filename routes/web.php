@@ -50,6 +50,7 @@ Route::post('/delete_links', 'LinkController@delete');
 Route::get('/add_patients', 'DemographicController@add_patients_page');
 Route::get('/update_patients', 'DemographicController@update_patients_page');
 Route::get('/delete_patients', 'DemographicController@delete_patients_page');
+Route::get('/view_patients', 'DemographicController@view_patients_page');
 
 Route::post('/insert_patients', 'DemographicController@insert');
 Route::post('/update_patients', 'DemographicController@update');

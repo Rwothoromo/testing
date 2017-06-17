@@ -38,7 +38,7 @@ class CreateDemographicsTable extends Migration {
 //            $table->dateTime('Created_At');
             $table->integer('Status');
             $table->integer('County_Id');
-            $table->integer('National_Id');
+            $table->string('National_Id');
             $table->integer('Patient_Category');
             $table->integer('Religion');
             $table->integer('Staff_Id');

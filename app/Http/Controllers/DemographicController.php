@@ -106,5 +106,10 @@ class DemographicController extends Controller {
         $patients = \App\Demographic::all();
         return view('delete_patients', ['patients' => $patients]);
     }
+    
+    public function view_patients_page() {
+        $patients = \App\Demographic::all();
+        return view('patients/view_patients', ['patients' => $patients]);
+    }
 
 }

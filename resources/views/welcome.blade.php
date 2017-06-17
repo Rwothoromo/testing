@@ -88,6 +88,7 @@
                     <a href="index.php/update_links">Update Links</a>
                     <a href="index.php/delete_links">Delete Links</a>
                     <a href="index.php/add_patients">Add Patients</a>
+                    <a href="index.php/view_patients">View Patients</a>
                 </div>
                 @foreach ($links as $link)
                     <li>{{ $link->title }}</li>
