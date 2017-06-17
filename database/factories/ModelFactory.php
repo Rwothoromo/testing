@@ -67,3 +67,16 @@ $factory->define(App\Demographic::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\InsuranceMember::class, function (Faker\Generator $faker) {
+    return [
+        'Insurance_Id' => $faker->Insurance_Id,
+        'Photo' => $faker->Photo,
+        'Relationship_To_Head' => $faker->Relationship_To_Head,
+        'Group_Id' => $faker->Group_Id,
+        'Family_Id' => $faker->Family_Id,
+        'max_number' => $faker->max_number,
+        'Patient_Id' => $faker->Patient_Id,
+        'Status' => $faker->Status,
+        'Staff_Incharge' => $faker->Staff_Incharge
+    ];
+});
