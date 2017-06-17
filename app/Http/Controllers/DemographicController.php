@@ -12,9 +12,9 @@ class DemographicController extends Controller {
     public function insert(Request $request) {
         // Validate the request...
         $validator = Validator::make($request->all(), [
-                    'First_Name' => 'required|max:255',
-                    'Last_Name' => 'required|max:255',
-                    'description' => 'required|max:255'
+                    'first_name' => 'required|max:255',
+                    'last_name' => 'required|max:255',
+//                    'description' => 'required|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -89,7 +89,7 @@ class DemographicController extends Controller {
     }
 
     public function add_patients_page() {
-        $insurance_members = \App\Insurance_Member::all();
+        $insurance_members = \App\InsuranceMember::all();
         $patients = \App\Demographic::all();
 
         return view('patients/patient_registration', [
