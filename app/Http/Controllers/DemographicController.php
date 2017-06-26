@@ -77,15 +77,13 @@ class DemographicController extends Controller {
     }
 
     public function delete(Request $request) {
-        echo "Here!!!";
-        $patient_id = $request->Patient_Id;
+        $patient_id = $request->patient_id;
 
         $patient = Demographic::find($patient_id);
 
         $patient->delete($patient_id);
 
-        echo "Patient deleted successfully.<br/>";
-        echo '<a href="delete_patients">Click Here</a> to go back.';
+        return "Patient deleted successfully.<br/><a href='delete_patients'>Click Here</a> to go back.";
     }
 
     public function add_patients_page() {
@@ -104,7 +102,7 @@ class DemographicController extends Controller {
 
     public function delete_patients_page() {
         $patients = \App\Demographic::all();
-        return view('delete_patients', ['patients' => $patients]);
+        return view('patients/view_patients', ['patients' => $patients]);
     }
     
     public function view_patients_page() {

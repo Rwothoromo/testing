@@ -2,7 +2,7 @@
     <!-- Column -->
     <div class="col-md-4">
         <div id="number" style="display: none">
-             Group 
+            Group 
             <div class="form-group">
                 <label for="insurance_number">Insurance Number</label>
 
@@ -72,7 +72,7 @@
 
             </div>
         </div>
-        
+
         <div class="form-group">
             <label style="display: inline; font-weight: bold" for="village">Age</label> &nbsp;&nbsp;
             <div class="controls" style="display: inline">
@@ -80,7 +80,7 @@
                 Months&nbsp;<input name="agemonths" class="span3" onfocus="calculate_months();" type="text" id="agemonths" size="7"/>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label for="maritalstatus">Marital Status</label>
 
@@ -96,7 +96,7 @@
 
             </div>
         </div>
-        
+
         <div class="form-group">
             <label class="control-label">Religion</label>
             <div class="controls">
@@ -107,7 +107,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="col-md-4">
         <!-- Group -->
         <div class="form-group">
@@ -118,13 +118,13 @@
                 <a href="#modal-occupation" data-toggle="modal"><font size="1">Add new</font></a>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label for="village">Next of Kin</label>
 
             <div class="controls"><input class="span10" onchange="show('next_kin_div');" id="nextkin" name="nextkin" type="text"/></div>
         </div>
-        
+
         <div id="next_kin_div" style="DISPLAY: none">
             <div class="form-group">
                 <label class="control-label"
@@ -150,14 +150,14 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label for="mobilenumber">Mobile Number</label>
             <div class="controls">
                 <input class="span10" id="mobilenumber" placeholder="Eg: 07xx123456" name="mobilenumber" type="text"/>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label style="display: inline" for="mobileowner">Mobile Owner</label>
             <div class="controls">
@@ -165,14 +165,14 @@
                 <input type="radio" name="mobileowner" onfocus="show('other_phone_owner_div');" value="Other"/>Other &nbsp;
             </div>
         </div>
-        
+
         <div class="form-group" id="other_phone_owner_div" style="DISPLAY: none">
             <label class="control-label">Owner's Name</label>
             <div class="controls">
                 <input type="text" class="span10 compulsory" name="other_phone_owner" id="other_phone_owner"/>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label class="control-label">Name of LC1 Chairman</label>
 
@@ -180,7 +180,7 @@
                 <input type="text" class="span10" name="chairman_name" id="chairman_name"/>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label class="control-label">Any Contact in <?php // echo HOSP_NAME;     ?></label>
 
@@ -191,7 +191,7 @@
                        value="No"/>&nbsp;No
             </div>
         </div>
-        
+
         <div id="my_div" style="DISPLAY: none">
             <div class="form-group">
                 <label class="control-label">Name of contact in <?php // echo HOSP_NAME;     ?></label>
@@ -222,7 +222,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="col-md-4">
         <!-- Group -->
         <div class="form-group">
@@ -236,7 +236,7 @@
                 </select>
             </div>
         </div>
-        
+
         <div class="form-group">
             <!--<label class="control-label">Patient Number</label>-->
 
@@ -245,7 +245,7 @@
                        name="patientnumber" type="hidden"/>
             </div>
         </div>
-        
+
         <input type="hidden" name="staff_id" value="<?php // echo $_SESSION['user_id'];     ?>">
 
         <?php if (isset($_GET["pat_id"])) { ?>
@@ -273,7 +273,7 @@
             </div>
 
         <?php } ?>
-        
+
         <div class="form-group">
             <label for="district">Residence</label>
             <div class="controls">
