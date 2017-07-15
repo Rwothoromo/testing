@@ -16,9 +16,23 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'First_Name' => $faker->first_name,
+        'Last_Name' => $faker->last_name,
+        'User_Name' => $faker->user_name,
+        'Email' => $faker->unique()->safeEmail,
+        'Mobile_Number' => $faker->mobile_number,
+//        'User_Group_Id' => $faker->user_group_id,
+//        'Position' => $faker->position,
+//        'Photo' => $faker->photo,
+//        'Council_Name' => $faker->council_name,
+//        'Registration_Number' => $faker->registration_number,
+//        'Expiry_Date' => $faker->expiry_date,
+//        'Pin' => $faker->pin,
+//        'Active' => $faker->active,
+//        'Staff_Id' => $faker->staff_id,
+//        'Blood_Group_Id' => $faker->blood_group_id,
+//        'Willing_To_Donate' => $faker->willing_to_donate,
+        'Password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });

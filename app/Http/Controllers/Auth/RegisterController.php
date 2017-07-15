@@ -48,7 +48,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'user_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -63,9 +65,23 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'First_Name' => $data['first_name'],
+            'Last_Name' => $data['last_name'],
+            'User_Name' => $data['user_name'],
+            'Email' => $data['email'],
+            'Mobile_Number' => $data['mobile_number'],
+//            'User_Group_Id' => '1',
+//            'Position' => '1',
+//            'Photo' => '1',
+//            'Council_Name' => '1',
+//            'Registration_Number' => '1',
+//            'Expiry_Date' => '2018-12-31',
+//            'Pin' => '12345',
+//            'Active' => 1,
+//            'Staff_Id' => 1,
+//            'Blood_Group_Id' => 1,
+//            'Willing_To_Donate' => 'Y',
+            'Password' => bcrypt($data['password']),
         ]);
     }
 }

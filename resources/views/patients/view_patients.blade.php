@@ -3,7 +3,8 @@
     <div class="container">
         <div class="row">
             <h1>View Patients</h1>
-            <table class="table-primary">
+            <!--<table class="table-primary table-bordered">-->
+            <table class="dynamicTable table-primary table table-striped table-hover table-condensed table-thead-simple">
                 <thead>
                     <tr>
                         <th>Id</th>
