@@ -6,7 +6,7 @@ use App\Link;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-//use DB;
+use DB;
 
 class LinkController extends Controller
 {
@@ -32,32 +32,37 @@ class LinkController extends Controller
                 ->withErrors($validator);
         }
 
-        $link = new Link;
-
-        $link->title = $request->title;
-        $link->url = $request->url;
-        $link->description = $request->description;
+//        $link = new Link;
+//
+//        $link->title = $request->title;
+//        $link->url = $request->url;
+//        $link->description = $request->description;
+//        
+//        $link->save();
         
-        $link->save();
-        
-//        $title = $request->input('title');
-//        $url = $request->input('url');
-//        $description = $request->input('description');
-//        DB::insert('insert into links (title, url, description) values(?)',[$title, $url, $description]);
+        $title = $request->input('title');
+        $url = $request->input('url');
+        $description = $request->input('description');
+        DB::insert('insert into links (title, url, description) values(?, ?, ?)',[$title, $url, $description]);
         echo "Link inserted successfully.<br/>";
         echo '<a href="add_links">Click Here</a> to go back.';
     }
     
     public function update(Request $request)
     {
-        $link_id = 11;
-        $link = Link::find($link_id);
-
-        $link->title = $request->title;
-        $link->url = $request->url;
-        $link->description = $request->description;
+        $link_id = 7;
+//        $link = Link::find($link_id);
+//
+//        $link->title = $request->title;
+//        $link->url = $request->url;
+//        $link->description = $request->description;
         
-        $link->save();
+//        $link->save();
+        
+        $title = $request->input('title');
+        $url = $request->input('url');
+        $description = $request->input('description');        
+        DB::update('UPDATE links SET title = ?, url = ?, description = ? WHERE id = ?', [$title, $url, $description, $link_id]);
         
         echo "Link updated successfully.<br/>";
         echo '<a href="update_links">Click Here</a> to go back.';
@@ -75,10 +80,11 @@ class LinkController extends Controller
     {
         echo "Here!!!";
         $link_id = $request->link_id;
+        DB::delete('DELETE FROM links WHERE id = ?', [$link_id]);
         
-        $link = Link::find($link_id);
-        
-        $link->delete($link_id);
+//        $link = Link::find($link_id);
+//        
+//        $link->delete($link_id);
 //        $deletedRows = App\Link::where('active', 0)->delete();
         
         echo "Link deleted successfully.<br/>";
@@ -97,7 +103,8 @@ class LinkController extends Controller
     
     public function delete_links_page()
     {
-        $links = \App\Link::all();
+//        $links = \App\Link::all();
+        $links = DB::select('SELECT * FROM links');
         return view('delete_links', ['links' => $links]);
     }
     
