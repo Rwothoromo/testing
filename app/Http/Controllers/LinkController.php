@@ -43,7 +43,10 @@ class LinkController extends Controller
         $title = $request->input('title');
         $url = $request->input('url');
         $description = $request->input('description');
-        DB::insert('insert into links (title, url, description) values(?, ?, ?)',[$title, $url, $description]);
+//        DB::insert('insert into links (title, url, description) values(?, ?, ?)',[$title, $url, $description]);
+        DB::table('links')
+                ->insert(['title' => $title, 'url' => $url, 'description' => $description]);
+        
         echo "Link inserted successfully.<br/>";
         echo '<a href="add_links">Click Here</a> to go back.';
     }
@@ -62,8 +65,12 @@ class LinkController extends Controller
         $title = $request->input('title');
         $url = $request->input('url');
         $description = $request->input('description');        
-        DB::update('UPDATE links SET title = ?, url = ?, description = ? WHERE id = ?', [$title, $url, $description, $link_id]);
+//        DB::update('UPDATE links SET title = ?, url = ?, description = ? WHERE id = ?', [$title, $url, $description, $link_id]);
         
+        DB::table('links')
+                ->where('id', '=', $link_id)
+                ->update(['title' => $title, 'url' => $url, 'description' => $description]);
+                
         echo "Link updated successfully.<br/>";
         echo '<a href="update_links">Click Here</a> to go back.';
         
@@ -80,7 +87,13 @@ class LinkController extends Controller
     {
         echo "Here!!!";
         $link_id = $request->link_id;
-        DB::delete('DELETE FROM links WHERE id = ?', [$link_id]);
+//        DB::delete('DELETE FROM links WHERE id = ?', [$link_id]);
+//        DB::table('links')->delete();
+//        DB::table('links')->where('votes', '>', 100)->delete();
+//        DB::table('links')->where('id', '=', $link_id)->delete();
+        DB::table('links')
+                ->where('id', '=', $link_id)
+                ->delete();
         
 //        $link = Link::find($link_id);
 //        
@@ -104,7 +117,8 @@ class LinkController extends Controller
     public function delete_links_page()
     {
 //        $links = \App\Link::all();
-        $links = DB::select('SELECT * FROM links');
+//        $links = DB::select('SELECT * FROM links');
+        $links = DB::table('links')->get();
         return view('delete_links', ['links' => $links]);
     }
     
