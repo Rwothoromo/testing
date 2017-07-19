@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-        <div class="row">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2"><!--Offset pushes div a few paces of the left margin-->
             <h1>Submit a link</h1>
             <form action="insert_links" method="post">
                 {!! csrf_field() !!}
@@ -18,7 +19,8 @@
                     <textarea class="form-control" id="description" name="description" placeholder="description"></textarea>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form>                
         </div>
     </div>
+</div>
 @endsection
