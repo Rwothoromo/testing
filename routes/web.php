@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Link;
+
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -11,12 +13,12 @@
   |
  */
 
-//Route::get('/', function () {
+// Route::get('/', function () {
 //    return view('welcome');
-//});
+// });
 
 Route::get('/', function () {
-    $links = \App\Link::all();
+    $links = Link::all();
 
     return view('welcome', [
         'links' => $links
@@ -57,4 +59,3 @@ Route::post('/update_patients', 'DemographicController@update');
 Route::post('/delete_patients', 'DemographicController@delete');
 
 //END Patients
-

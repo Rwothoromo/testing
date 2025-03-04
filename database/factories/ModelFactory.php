@@ -11,8 +11,8 @@
   |
  */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+/** @var \Illuminate\Database\Eloquent\Factories\Factory $factory */
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -37,15 +37,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Link::class, function (Faker\Generator $faker) {
-    return [
-        'title' => $faker->name,
-        'url' => $faker->url,
-        'description' => $faker->paragraph,
-    ];
-});
-
-$factory->define(App\Demographic::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Demographic::class, function (Faker\Generator $faker) {
     return [
         'Patient_Id' => $faker->Patient_Id,
         'First_Name' => $faker->First_Name,
@@ -81,7 +73,7 @@ $factory->define(App\Demographic::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\InsuranceMember::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\InsuranceMember::class, function (Faker\Generator $faker) {
     return [
         'Insurance_Id' => $faker->Insurance_Id,
         'Photo' => $faker->Photo,

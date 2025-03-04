@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Demographic;
+use App\Models\Demographic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -87,8 +87,8 @@ class DemographicController extends Controller {
     }
 
     public function add_patients_page() {
-        $insurance_members = \App\InsuranceMember::all();
-        $patients = \App\Demographic::all();
+        $insurance_members = \App\Models\InsuranceMember::all();
+        $patients = \App\Models\Demographic::all();
 
         return view('patients/patient_registration', [
             'patients' => $patients,
@@ -101,12 +101,12 @@ class DemographicController extends Controller {
     }
 
     public function delete_patients_page() {
-        $patients = \App\Demographic::all();
+        $patients = \App\Models\Demographic::all();
         return view('patients/view_patients', ['patients' => $patients]);
     }
     
     public function view_patients_page() {
-        $patients = \App\Demographic::all();
+        $patients = \App\Models\Demographic::all();
         return view('patients/view_patients', ['patients' => $patients]);
     }
 

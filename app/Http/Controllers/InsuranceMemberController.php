@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\InsuranceMember;
+use App\Models\InsuranceMember;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -75,7 +75,7 @@ class InsuranceMemberController extends Controller {
     }
 
     public function delete_insurance_members_page() {
-        $insurance_members = \App\InsuranceMember::all();
+        $insurance_members = \App\Models\InsuranceMember::all();
         return view('delete_insurance_members', ['insurance_members' => $insurance_members]);
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Link;
+use App\Models\Link;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,8 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        return view('home');
-        $links = \App\Link::all();
+        // return view('home');
+        $links = Link::all();
 
         return view('home', [
             'links' => $links

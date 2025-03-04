@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Link;
+use App\Models\Link;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -98,7 +98,7 @@ class LinkController extends Controller
 //        $link = Link::find($link_id);
 //        
 //        $link->delete($link_id);
-//        $deletedRows = App\Link::where('active', 0)->delete();
+//        $deletedRows = App\Models\Link::where('active', 0)->delete();
         
         echo "Link deleted successfully.<br/>";
         echo '<a href="delete_links">Click Here</a> to go back.';
@@ -116,7 +116,7 @@ class LinkController extends Controller
     
     public function delete_links_page()
     {
-//        $links = \App\Link::all();
+//        $links = \App\Models\Link::all();
 //        $links = DB::select('SELECT * FROM links');
         $links = DB::table('links')->get();
         return view('delete_links', ['links' => $links]);
